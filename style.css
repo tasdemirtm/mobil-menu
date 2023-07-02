@@ -1,0 +1,177 @@
+body {
+    height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --menu-background: #222831;
+    --menu-text-color: #EEEEEE;
+    --hover-text-color: #A2FF86;
+}
+
+.mobil-menu {
+    position: relative;
+    background: var(--menu-background);
+    width: 20%;
+    color: var(--menu-text-color);
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    transition: 250ms ease-in-out;
+    left: -100%;
+    padding: 20px;
+}
+
+.mobil-menu .top-submenu .submenu-content li,
+.mobil-menu ul li {
+    margin: 1rem 0;
+}
+
+
+
+.mobil-menu a {
+    color: var(--menu-text-color);
+    width: 100%;
+}
+
+.mobil-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #00000030;
+    transition: 300ms ease-in-out;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+}
+
+.mobil-menu-overlay.active,
+.mobil-menu.active {
+    left: 0;
+}
+
+.mobil-menu .top-submenu .submenu {
+    position: relative;
+}
+
+.mobil-menu .top-submenu .submenu::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 1024 1024' class='icon' version='1.1' xmlns='http://www.w3.org/2000/svg' fill='%23000000' stroke='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z' fill='%23E7F6F2'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 300ms ease-in-out;
+}
+.mobil-menu .top-submenu .submenu-content label:hover,
+.mobil-menu .top-submenu .submenu:hover {
+    color: var(--hover-text-color);
+    transition: 300ms ease-in-out;
+}
+.mobil-menu .top-submenu .submenu-content label:hover::before,
+.mobil-menu .top-submenu .submenu:hover::before {
+    transform: rotate(180deg);
+    transition: 300ms ease-in-out;
+}
+
+
+
+.mobil-menu .top-submenu .submenu-content {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--menu-background);
+    transition: 300ms ease-in-out;
+    padding: 20px;
+    z-index: 99;
+}
+
+.mobil-menu .top-submenu .submenu-content.active {
+    left: 0%;
+
+}
+
+
+.mobil-menu .top-submenu .submenu-content label {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.mobil-menu .top-submenu .submenu-content label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z' fill='%23E7F6F2'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 300ms ease-in-out;
+}
+
+.btn-open {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+}
+
+.btn-open .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-open .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.btn-open .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+}
+
+.btn-open .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.btn-open.opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+.btn-open.opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+}
+
+.btn-open.opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+@media screen and (max-width:1199px) {
+    .mobil-menu{
+        width: 70%;
+    }
+}
